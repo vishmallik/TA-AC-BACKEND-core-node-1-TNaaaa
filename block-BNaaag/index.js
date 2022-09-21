@@ -6,11 +6,8 @@ fs.readFile("./content.md", (error, content) => {
 });
 
 //sync code
-fs.readFileSync("./content.md", (err, content) => {
-  console.log("sync", content.toString());
-  console.log(err);
-});
-
+let result = fs.readFileSync("./content.md", "utf8");
+console.log(result);
 //async code
 fs.readFile("./content.md", (error, content) => {
   console.log("async", content.toString());
@@ -18,6 +15,5 @@ fs.readFile("./content.md", (error, content) => {
 });
 
 let buff1 = Buffer.alloc(10);
-console.log(buff1);
-
 buff1.write("Welcome to Buffer");
+console.log(buff1);
