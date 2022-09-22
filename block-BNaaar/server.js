@@ -12,7 +12,7 @@ function handleRequest(req, res) {
     res.setHeader("Content-Type", "text/html");
     res.end("<h2>this is all about NodeJS</h2>");
   } else if (req.method === "POST" && pathname === "/about") {
-    res.setHeader("Content-Type", "text/json");
+    res.setHeader("Content-Type", "application/json");
     res.end("{message: this is a post request}");
   } else {
     res.writeHead(404, { "Content-Type": "text/plain" });
