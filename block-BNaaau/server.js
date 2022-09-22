@@ -71,7 +71,7 @@ const server5 = http.createServer(handleRequest);
 
 function handleRequest(req, res) {
   res.setHeader("Content-Type", "text/plain");
-  res.write(req.headers);
+  res.write(JSON.stringify(req.headers));
   res.end();
 }
 server5.listen(7000, () => {
@@ -128,7 +128,7 @@ const server9 = http.createServer(handleRequest);
 
 function handleRequest(req, res) {
   res.setHeader("Content-Type", "application/json");
-  res.end(`{ success: true, message: "Welcome to Nodejs" }`);
+  res.end(JSON.stringify({ success: true, message: "Welcome to Nodejs" }));
 }
 server9.listen(8888, () => {
   console.log("server listening on port 8888");
@@ -224,9 +224,8 @@ function handleRequest(req, res) {
   console.log(pathname);
   let reqUrl = req.url;
   console.log(reqUrl, pathname);
-  let email = parsedUrl.query.email;
   res.setHeader("Content-Type", "application/json");
-  res.end(`${email}`);
+  res.end(JSON.stringify(parsedUrl.query));
 }
 server13.listen(9999, () => {
   console.log("server listening on port 9999");
